@@ -15,7 +15,7 @@ resource "aws_instance" "web" {
   instance_type = "m5.8xlarge"
 
   tags = {
-    Name = "HelloWorld"
+    Name = "HelloWorld2"
   }
 }
 #
