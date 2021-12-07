@@ -362,6 +362,7 @@ post_to_github () {
 post_to_github_commit () {
   echo "Posting comment to GitHub commit $GITHUB_SHA"
   msg="$(build_msg true)"
+  echo "$msg"
   jq -Mnc --arg msg "$msg" '{"body": "\($msg)"}' | curl -L -X POST -d @- \
     -H "Content-Type: application/json" \
     -H "Authorization: token $GITHUB_TOKEN" \
@@ -512,7 +513,7 @@ post_to_slack () {
 load_github_env () {
   export VCS_REPO_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY
 
-  github_event=$(cat "$GITHUB_EVENT_PATH")
+  github_event=$GITHUB_EVENT_PATH
 
   if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
     GITHUB_SHA=$(echo "$github_event" | jq -r .pull_request.head.sha)
@@ -523,7 +524,7 @@ load_github_env () {
     VCS_PULL_REQUEST_URL=$(curl -s \
       -H "Accept: application/vnd.github.groot-preview+json" \
       -H "Authorization: token $GITHUB_TOKEN" \
-      "$GITHUB_API_URL"/repos/"$GITHUB_REPOSITORY"/commits/"$GITHUB_SHA"/pulls \
+      "$GITHUB_API_URL"/repos/"$GITHUB_REPOSITORY"/pulls \
       | jq -r '. | map(select(.state == "open")) | . |= sort_by(.updated_at) | reverse | .[0].html_url')
     export VCS_PULL_REQUEST_URL
   fi
@@ -643,5 +644,3 @@ fi
 if [ -n "$SLACK_WEBHOOK_URL" ]; then
   post_to_slack
 fi
-
-cleanup
