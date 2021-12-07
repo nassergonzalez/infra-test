@@ -1,0 +1,7 @@
+encryptionsalt: v1:kDkDhlQgNeA=:v1:rR9UC0fImqVPf2G6:20sBeb5qHtbPACwHjf+MPE6r2/4x1Q==
+config:
+  quickstart:bucket-name: nasservariable
+  quickstart:project:
+    secure: v1:0gqifke0VSkS/8gP:awEQ3PWYEkQ9SfTAXEUcuieziT3nPBWJtx2Kg3lTYJ/wpA==
+  quickstart:region:
+    secure: v1:B4xnV79OnHQnWQvI:r7Iv42A4CH0oZcTjEBdbCtMP4KCNB9K5gw==
