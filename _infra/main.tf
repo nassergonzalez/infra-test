@@ -6,13 +6,13 @@
 ##  source = "./modules/app2"
 ##}
 #
-resource "aws_s3_bucket" "b2" {
+resource "aws_s3_bucket" "b23" {
   bucket = var.bucket_name
   acl    = "public-read"
 }
 resource "aws_instance" "web2" {
   ami           = "ami-0d57c0143330e1fa7"
-  instance_type = "m5.8xlarge"
+  instance_type = "m5.4xlarge"
 
   tags = {
     Name = "HelloWorld2"
@@ -26,7 +26,7 @@ resource "aws_sqs_queue" "terraform_queue" {
   message_retention_seconds = 86400
   receive_wait_time_seconds = 10
   tags = {
-    Environment = "foobar"
+    Environment = "foobr"
   }
 }
 
