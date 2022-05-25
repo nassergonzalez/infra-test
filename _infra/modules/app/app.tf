@@ -25,5 +25,5 @@ resource "docker_container" "nginx" {
 
 variable "container_name" {
   type = string
-  default = "rest"
+  default = "test"
 }
