@@ -17,7 +17,7 @@ resource "docker_image" "nginx" {
 resource "docker_container" "nginx" {
   count = 2
   image = docker_image.nginx.latest
-  name  = format("%s_%s",var.container_name,count.index+3)
+  name  = format("%s_%s",var.container_name,count.index+1)
   ports {
     internal = 80
   }
