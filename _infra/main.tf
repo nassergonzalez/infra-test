@@ -9,11 +9,6 @@ terraform {
 
 provider "aws" {
   region = "us-east-2"
-  assume_role {
-    role_arn     = "arn:aws:iam::448640225317:role/nasserTest"
-    session_name = "SESSION_NAME"
-    external_id  = "EXTERNAL_ID"
-  }
 }
 
 
