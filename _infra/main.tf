@@ -8,7 +8,8 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-2"
+ role_arn = "arn:aws:iam::448640225317:role/nasserTest"
+ region = "us-east-2"
 }
 
 
