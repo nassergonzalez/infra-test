@@ -7,11 +7,6 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = "us-east-2"
-}
-
-
 resource "aws_sqs_queue" "terraform_queue" {
   name                      = "ngonzalez-queue-2"
   delay_seconds             = 90
