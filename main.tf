@@ -1,22 +1,21 @@
-provider "google" {
-  project = "iac-play"
-  region  = "us-central1"
-  zone    = "us-central1-c"
-}
-resource "google_compute_instance" "vm_instance" {
-  name         = "terraform-instance"
-  machine_type = "e2-micro"
-
-  boot_disk {
-    initialize_params {
-      image = "debian-cloud/debian-11"
+# Configure the Azure provider
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0.2"
     }
   }
 
-  network_interface {
-    # A default network is created for all GCP projects
-    network = "default"
-    access_config {
-    }
-  }
+  required_version = ">= 1.1.0"
 }
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "rg" {
+  name     = "myTFResourceGroup"
+  location = "westus2"
+}
+
