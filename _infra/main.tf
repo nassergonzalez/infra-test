@@ -10,7 +10,7 @@ provider "aws" {
   region = "us-east-2"
 }
 resource "aws_sqs_queue" "terraform_queue" {
-  name                      = "ngonzalez-queue-3"
+  name                      = "ngonzalez-queue-pr-trigger"
   delay_seconds             = 90
   max_message_size          = 2048
   message_retention_seconds = 86400
