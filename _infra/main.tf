@@ -2,17 +2,21 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.0"
+      version = "4.0.0"
     }
   }
 }
+
 provider "aws" {
-  region = "us-east-2"
+  region = var.aws_region
 }
-resource "aws_sqs_queue" "terraform_queue" {
-  name                      = "ngonzalez-queue-3"
-  delay_seconds             = 90
-  max_message_size          = 2048
-  message_retention_seconds = 86400
-  receive_wait_time_seconds = 10
+
+resource "aws_instance" "example" {
+  ami           = var.instance_ami
+  instance_type = var.instance_type
+
+  tags = {
+    Name = var.instance_name
+  }
 }
+
