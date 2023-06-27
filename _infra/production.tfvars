@@ -1,1 +1,0 @@
-bucket_name = "prod-state-bucket-name"
