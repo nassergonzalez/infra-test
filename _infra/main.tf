@@ -6,7 +6,7 @@ module "app2" {
   source = "./modules/app2"
 }
 
-resource "aws_s3_bucket" "b" {
+resource "aws_s3_bucket" "b1" {
   bucket = var.bucket_name
   acl    = "public-read"
 }
