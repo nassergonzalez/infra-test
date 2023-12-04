@@ -1,1 +1,1 @@
-instance_name = "namefromnfile"
+instance_name = "namefromnPR"
